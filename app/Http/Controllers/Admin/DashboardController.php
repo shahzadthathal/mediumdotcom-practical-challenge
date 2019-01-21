@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Articles;
+use App\Models\Topics;
+use App\Models\Tags;
 
 class DashboardController extends Controller
 {
@@ -14,7 +17,14 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        
-        return view('admin.dashboard');
+        $articlesCount =  Articles::count();
+        $topicsCount =  Topics::count();
+        $tagsCount =  Tags::count();
+
+        return view('admin.dashboard',[
+        	'articlesCount'=>$articlesCount,
+        	'topicsCount'=>$topicsCount,
+        	'tagsCount'=>$tagsCount,
+        ]);
     }
 }

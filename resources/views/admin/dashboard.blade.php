@@ -17,7 +17,7 @@
                             </div>
                             <div class="flex-1 text-right md:text-center">
                                 <h5 class="uppercase text-grey-dark">Articles</h5>
-                                <h3 class="text-3xl">xxxx <span class="text-green"><i class="fas fa-caret-up"></i></span></h3>
+                                <h3 class="text-3xl">{{$articlesCount}} <span class="text-green"><i class="fas fa-caret-up"></i></span></h3>
                             </div>
                         </div>
                     </div>
@@ -32,7 +32,7 @@
                             </div>
                             <div class="flex-1 text-right md:text-center">
                                 <h5 class="uppercase text-grey-dark">Topics</h5>
-                                <h3 class="text-3xl">xxxx <span class="text-orange"><i class="fas fa-exchange-alt"></i></span></h3>
+                                <h3 class="text-3xl">{{$topicsCount}} <span class="text-orange"><i class="fas fa-exchange-alt"></i></span></h3>
                             </div>
                         </div>
                     </div>
@@ -47,7 +47,7 @@
                             </div>
                             <div class="flex-1 text-right md:text-center">
                                 <h5 class="uppercase text-grey-dark">Tags</h5>
-                                <h3 class="text-3xl">xxxxx <span class="text-yellow-dark"><i class="fas fa-caret-up"></i></span></h3>
+                                <h3 class="text-3xl">{{$tagsCount}} <span class="text-yellow-dark"><i class="fas fa-caret-up"></i></span></h3>
                             </div>
                         </div>
                     </div>

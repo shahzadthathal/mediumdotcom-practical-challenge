@@ -27,7 +27,7 @@
    @endif
 
    <div class="flex flex-wrap -mx-3 mb-6">
-    <div class="w-full px-3">
+    <div class="w-full md:w-1/2 px-3">
       <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-name">
        Tag name
       </label>
@@ -53,7 +53,6 @@
 </div>
 
 <div class="md:flex md:items-center">
-    <div class="md:w-1/3"></div>
     <div class="md:w-2/3">
 
       {{ Form::submit('Submit', array('class'=>'bg-grey-light hover:bg-grey text-grey-darkest font-bold py-2 px-4 rounded')) }}
