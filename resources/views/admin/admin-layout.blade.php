@@ -28,7 +28,11 @@
                   </div>
                </span>
             </div>
+
+            
+
             <div class="flex w-full pt-2 content-center justify-between md:w-1/3 md:justify-end">
+               @auth
                <ul class="list-reset flex justify-between flex-1 md:flex-none items-center">
                   <li class="flex-1 md:flex-none md:mr-3">
                      <a class="inline-block py-2 px-4 text-white no-underline" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="fa fa-sign-out"></i>  {{ __('Logout') }}</a>
@@ -54,10 +58,14 @@
                      </div>
                   </li>
                </ul>
+               @endauth
             </div>
+
          </div>
       </nav>
+     
       <div class="flex flex-col md:flex-row">
+         @auth
          <div class="bg-black shadow-lg h-16 fixed pin-b mt-12 md:relative md:h-screen z-10 w-full md:w-48">
             <div class="md:mt-12 md:w-48 md:fixed md:pin-l md:pin-t content-center md:content-start text-left justify-between">
                <ul class="list-reset flex flex-row md:flex-col py-0 md:py-3 px-1 md:px-2 text-center md:text-left">
@@ -84,10 +92,12 @@
                </ul>
             </div>
          </div>
+         @endauth
          <div class="main-content flex-1 bg-grey-lightest mt-12 md:mt-2 pb-24 md:pb-5">
             @yield('content')
          </div>
       </div>
+
       <!-- <script src="{{ asset('public/js/app.js') }}"></script> -->
       <script>
          /*Toggle dropdown list*/
