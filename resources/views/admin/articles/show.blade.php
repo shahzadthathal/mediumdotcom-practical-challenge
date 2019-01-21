@@ -14,7 +14,7 @@
       <a class="bg-grey-light hover:bg-grey text-grey-darkest font-bold py-2 px-4 rounded m-1" href="{{ route('admin.articles.edit', $item->id) }}"> Update</a>
 
       {{ Form::open(['method' => 'DELETE','route' => ['admin.articles.destroy', $item->id]]) }}
-         {{ Form::submit('Delete this record?', ['class' => 'bg-red hover:bg-grey text-grey-darkest font-bold py-2 px-4 rounded m-1']) }}
+         {{ Form::submit('Delete this record?', ['class' => 'bg-red hover:bg-grey text-white font-bold py-2 px-4 rounded m-1']) }}
       {{ Form::close() }}
 </div>
 
@@ -28,56 +28,39 @@
          @endif
        @endforeach
 
-</div>
-</div>
 
+<div class="max-w-sm rounded overflow-hidden shadow-lg">
+  <img class="w-full" src="{{ $item->image}}" alt="{{ $item->title}}">
+  <div class="px-6 py-4">
+    <div class="font-bold text-xl mb-2"> {{ $item->title}}</div>
+    <p class="text-grey-darker">{{ $item->reading_time}} read</p>
+    <p class="text-grey-darker text-base">
+     {!! $item->description !!}
+    </p>
+  </div>
+  <div class="px-6 py-4">
+   @foreach(explode(",",$item->tags) as $tag)
+    <span class="inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker mr-2">#{{$tag}}</span>
+   @endforeach
+  </div>
 
-<div class="container-fluid">
-   <div class="row">
-      <div class="col-lg-12">
-         <h1 class="page-header">View article</h1>
-      </div>
-   </div>
-   <div class="row">
-      <div class="col-lg-12">
-          @foreach (['danger', 'warning', 'success', 'info'] as $key)
-            @if(Session::has($key))
-               <p class="alert alert-{{ $key }}">{{ Session::get($key) }}</p>
-            @endif
-         @endforeach
-         <a class="btn btn-primary btn-sm" href="{{ route('admin.articles.index') }}"><i class="fa fa-arrow-left"></i> Back</a>
-         <a class="btn btn-primary btn-sm" href="{{ route('admin.articles.edit', $item->id) }}"><i class="fa fa-pencil"></i> Update</a>
-
-         {{ Form::open(['method' => 'DELETE','route' => ['admin.articles.destroy', $item->id]]) }}
-            {{ Form::submit('Delete this record?', ['class' => 'btn btn-danger btn-sm']) }}
-         {{ Form::close() }}
-
-
-         <hr>
-         <ul class="list-group" >
-            <li class="list-group-item">ID: {{ $item->id}}</li>
-            <li class="list-group-item">Title: {{ $item->title}}</li>
-            <li class="list-group-item">Image: <img src="{{ $item->image}}"></li>
+   <div class="px-6 py-4">
+      <h2>Extra detail</h2>
+       <ul>
+            <li>ID: {{ $item->id}}</li>
             <li class="list-group-item">Slug: {{ $item->slug}}</li>
-            <li class="list-group-item">Tags: {{ $item->tags}}</li>
-            
-            <li class="list-group-item">Reading time: {{ $item->reading_time}}</li>
-            <li class="list-group-item">Description: {{ $item->description}}</li>
-
-            <li class="list-group-item">Status: {{ $item->status == 1 ? 'Active' : 'In Active' }}</li>
-
-            <li class="list-group-item">Is popular: {{ $item->is_popular == 1 ? 'Yes' : 'No' }}</li>
-
-            <li class="list-group-item">Viewed: {{ $item->viewed}}</li>
-            <li class="list-group-item">Clap: {{ $item->clap}}</li>
-            
-            <li class="list-group-item">Created at:  {{\Carbon\Carbon::parse($item->created_at)->format('d/m/Y')}}</li>
-            <li class="list-group-item">Updated at: {{\Carbon\Carbon::parse($item->updated_at)->format('d/m/Y')}}</li>
-            
-           
+            <li>Status: {{ $item->status == 1 ? 'Active' : 'In Active' }}</li>
+            <li>Is popular: {{ $item->is_popular == 1 ? 'Yes' : 'No' }}</li>
+            <li>Viewed: {{ $item->viewed}}</li>
+            <li>Clap: {{ $item->clap}}</li>
+            <li>Created at:  {{\Carbon\Carbon::parse($item->created_at)->format('d/m/Y')}}</li>
+            <li>Updated at: {{\Carbon\Carbon::parse($item->updated_at)->format('d/m/Y')}}</li>
          </ul>
-      </div>
    </div>
 </div>
+
+</div>
+</div>
+
 @endsection
 

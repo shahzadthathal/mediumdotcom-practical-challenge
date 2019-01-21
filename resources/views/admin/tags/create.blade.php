@@ -1,5 +1,41 @@
 @extends('admin.admin-layout')
 @section('content')
+
+
+<div class="bg-blue-darker p-2 shadow text-xl text-white mt-10">
+    <h3 class="pl-2">Add new tag</h3>
+</div>
+
+<div class="flex flex-wrap m-5">
+
+
+   {{ Form::open([
+         'route' => 'admin.articles.store', 
+         'class' => 'w-full  bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4',
+         'files' => true
+      ]) 
+      }}
+
+   @if($errors->any())
+      <div class="bg-red-lightest border border-red-light text-red-dark px-4 py-3 rounded relative mb-3" role="alert">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+         </ul>
+      </div>
+   @endif
+
+   <div class="flex flex-wrap -mx-3 mb-6">
+    <div class="w-full px-3">
+      <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-title">
+        Article title
+      </label>
+      <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-grey" name="title" id="grid-title" type="text" placeholder="My awesome article" value="{{ old('title') ?  old('title') : '' }}">
+    </div>
+  </div>
+
+  
 <div class="container-fluid">
    <div class="row">
       <div class="col-lg-12">
