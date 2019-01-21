@@ -99,19 +99,48 @@
                     <span title="Aug 18"> Aug 18</span> . <span title="6 min read">6 min read</span></p>
             </div>
         </div>
-
     </div>
+
+<div class="container max-w-2xl mx-auto text-right mt-3">
+    <a href="#" class="inline-block no-underline text-green hover:text-green-dark text-sm py-2 px-3 ">See All Featured</a>
+    <hr class="border-b">
 </div>
 
-<div class="w-full bg-white mt-5">
+</div>
+
+
+
+<!-- <div class="w-full bg-white mt-5"> -->
+<div class="container max-w-2xl mx-auto bg-white mt-5">
 
             <!-- title -->
-            <div class="text-center px-6 py-12 mb-6 bg-grey-lightest border-b">
-                <h1 class=" text-xl md:text-4xl pb-4">Blog</h1>
-                <p class="leading-loose text-grey-dark">
-                    Catch up on the latest news and updates.
-                </p>
+            
+            <div class="text-center pl-6 mb-6 bg-grey-lightest border-b rounded">
+
+
+                <div class="flex " >
+                
+                  <div class="w-1/2 py-12">
+                      
+                        <h1 class=" text-xl md:text-4xl pb-4 text-left">Welcome to Medium, where words matter.</h1>
+                        <p class="leading-loose text-grey-dark text-left">
+                            We’ll deliver the best stories and ideas on the topics you care about most straight to your homepage, app, or inbox.
+                        </p>
+                        <p class="leading-loose text-left">
+                            <a href="#" class="inline-block bg-black hover:bg-green no-underline text-white py-1 px-2 border rounded">Get started</a>
+                            <a href="#" class="inline-block bg-transparent  no-underline text-green py-1 px-2 border border-green rounded">Learn more</a>
+                        </p>
+
+                  </div>
+                
+                  <div class="w-1/2" style="background-image: url('https://cdn-images-1.medium.com/max/1400/1*TckFXfkU_bg0aADPYR_t7Q.png');     background-position: bottom right;background-size: contain;background-repeat: no-repeat;">
+                    
+                  </div>
+                    
+                </div>
+
             </div>
+
             <!-- /title -->
 
             <div class="container max-w-xl mx-auto md:flex items-start py-8 px-6">
