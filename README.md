@@ -20,7 +20,7 @@ Testing
 # Install Dependencies
 composer install
 
-#Set DB Credentials 
+# Set DB Credentials 
 in .env file
 
 # Run Migrations
