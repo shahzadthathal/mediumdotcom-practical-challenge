@@ -18,5 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
+Route::get('home/page', 'HomePageController@index');
+
 Route::get('articles', 'ArticleController@index');
 Route::get('article/{id}', 'ArticleController@show');
