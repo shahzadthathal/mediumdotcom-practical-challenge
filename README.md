@@ -26,7 +26,7 @@ in .env file
 # Run Migrations
 php artisan migrate
 
-# Import Articles
+# Import fake data
 php artisan db:seed
 
 # If you get an error about an encryption key
