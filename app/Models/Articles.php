@@ -14,4 +14,10 @@ class Articles extends Model
     protected $fillable = [
         'title','slug','topic_id', 'tags','image','description','status','is_popular','reading_time',
     ];
+
+    public function topic()
+	{
+		return $this->hasOne('App\Models\Topics', 'id', 'topic_id');
+	}
+
 }

@@ -20,6 +20,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 
+
+
 #Blog upload multiple images in description
 Route::post('admin/ajax/upload/image', 'Admin\ArticlesController@ajaxUploadImageDescription')->name('ajaxUploadImageDescription');
 
