@@ -4,9 +4,9 @@
                 
                 <ol class="sm:list-reset md:list-reset lg:list-reset xl:list-reset text-grey-darkest">
                     
-                    <li class="flex mb-6" v-for="article in popularArticles">
+                    <li class="flex mb-6" v-for="article ,index in popularArticles">
                         <div class="w-1/4">
-                            <span class="text-2xl text-grey"> 01 </span>
+                            <span class="text-2xl text-grey"> {{ '0'+index+1}} </span>
                         </div>
                         <div class="w-3/4">
                             <a :href="'article/'+article.topic_slug+'/'+article.slug" class="no-underline text-black">

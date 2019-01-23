@@ -81,7 +81,7 @@
         		fetch('api/topic/wise/articles')
         			.then(res => res.json())
         			.then(res => {
-        				console.log(res.data);
+        				//console.log(res.data);
         				this.topicWiseArticles = res.data;
         			});
         	}
