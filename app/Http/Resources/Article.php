@@ -19,6 +19,7 @@ class Article extends JsonResource
         return [
             'title'=>$this->title,
             'slug'=>$this->slug,
+            'image'=>$this->image,
             'description'=>$this->description,
             'clap'=>$this->clap,
             'topic_title'=>$this->topic->name,

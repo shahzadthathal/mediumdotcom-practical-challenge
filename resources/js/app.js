@@ -23,7 +23,13 @@ window.Vue = require('vue');
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 Vue.component('articles-component', require('./components/ArticlesComponent.vue').default);
-Vue.component('home-main-component', require('./components/HomeMainComponent.vue').default);
+Vue.component('latest-articles-component', require('./components/LatestArticlesComponent.vue').default);
+Vue.component('featured-articles-component', require('./components/FeaturedArticlesComponent.vue').default);
+Vue.component('topic-wise-articles-component', require('./components/TopicWiseArticlesComponent.vue').default);
+Vue.component('popular-articles-component', require('./components/PopuloarArticlesComponent.vue').default);
+
+Vue.component('featured-collections-component', require('./components/FeaturedCollectionsComponent.vue').default);
+
 
 
 /**

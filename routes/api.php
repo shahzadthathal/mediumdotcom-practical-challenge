@@ -18,7 +18,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::get('home/page', 'HomePageController@index');
-
 Route::get('articles', 'ArticleController@index');
+#Home page data
+Route::get('latest/articles', 'ArticleController@latest');
+Route::get('featured/articles', 'ArticleController@featured');
+Route::get('topic/wise/articles', 'ArticleController@topicWise');
+Route::get('popular/articles', 'ArticleController@popular');
 Route::get('article/{id}', 'ArticleController@show');

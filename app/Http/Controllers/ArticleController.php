@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\Models\Articles;
+use App\Models\Topics;
 use App\Http\Resources\Article as ArticleResource;
 
 class ArticleController extends Controller
@@ -17,31 +18,154 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Articles::where('status',1)->paginate(15);
-        return ArticleResource::collection($articles);
+        try{
+
+            $articles = Articles::where('status',1)->paginate(15);
+            return ArticleResource::collection($articles);
+
+        }catch(\Throwable | \Error | \Exception $e){
+            return response()->json([
+                    'error'=>true,
+                    'msg' =>"Network error",
+                    'errorMsg' =>$e->getMessage(),//errorMsg for developers to debug what is actual error.
+                    'data' => null
+            ], 201);
+        }
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function latest()
     {
-        //
+        try{
+
+            $articles = Articles::where('status',1)->orderBy('created_at','desc')->limit(5)->get();
+            foreach($articles as $key=>$article){
+                if($key==0){
+                    $data['leftSideArticle'] = new ArticleResource($article);
+                }elseif($key==4){
+                    $data['rightSideArticle'] = new ArticleResource($article);
+                }else{
+                    $data['centerSideArticles'][] = new ArticleResource($article);
+                }
+            }
+
+            return response()->json([
+                    'error'=>false,
+                    'msg'=>'Success',
+                    'data' => $data,
+                ], 200);
+        
+        }catch(\Throwable | \Error | \Exception $e){
+            return response()->json([
+                    'error'=>true,
+                    'msg' =>"Network error",
+                    'errorMsg' =>$e->getMessage(),
+                    'data' => null
+            ], 201);
+        }
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Display a listing of the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function featured()
     {
-        //
+        try{
+
+            #We will take is_featured =1 in where clause but for now take random
+            $featuredArticles = Articles::where('status',1)->inRandomOrder()->limit(4)->get();
+
+            $data['featuredArticles'] = ArticleResource::collection($featuredArticles);
+
+            return response()->json([
+                    'error'=>false,
+                    'msg'=>'Success',
+                    'data' => $data,
+                ], 200);
+
+        }catch(\Throwable | \Error | \Exception $e){
+            return response()->json([
+                    'error'=>true,
+                    'msg' =>"Network error",
+                    'errorMsg' =>$e->getMessage(),
+                    'data' => null
+            ], 201);
+        }
     }
 
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function topicWise()
+    {
+        try{
+
+            $topics = Topics::where('status',1)->inRandomOrder()->limit(4)->get();
+            foreach($topics as $key=>$topic){
+                $articles = Articles::where(['status'=>1, 'topic_id'=>$topic->id])->orderBy('created_at','desc')->limit(5)->get();
+                $data[] = [
+                        'name'=>$topic->name,
+                        'slug'=>$topic->slug,
+                        'articles'=> $articles,
+                ];
+            }
+
+            return response()->json([
+                    'error'=>false,
+                    'msg'=>'Success',
+                    'data' => $data,
+                ], 200);
+
+        }catch(\Throwable | \Error | \Exception $e){
+            return response()->json([
+                    'error'=>true,
+                    'msg' =>"Network error",
+                    'errorMsg' =>$e->getMessage(),
+                    'data' => null
+            ], 201);
+        }
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function popular()
+    {
+        try{
+
+            #We will take is_popular =1 in where clause but for now take random
+            $popularArticles = Articles::where('status',1)->inRandomOrder()->limit(4)->get();
+
+            $data['popularArticles'] = ArticleResource::collection($popularArticles);
+
+            return response()->json([
+                    'error'=>false,
+                    'msg'=>'Success',
+                    'data' => $data,
+                ], 200);
+
+        }catch(\Throwable | \Error | \Exception $e){
+            return response()->json([
+                    'error'=>true,
+                    'msg' =>"Network error",
+                    'errorMsg' =>$e->getMessage(),
+                    'data' => null
+            ], 201);
+        }
+    }
+
+
+    
     /**
      * Display the specified resource.
      *
@@ -50,41 +174,19 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        $article = Articles::findOrFail($id);
-        return new ArticleResource($article);
+        try{
+
+            $article = Articles::findOrFail($id);
+            return new ArticleResource($article);
+
+        }catch(\Throwable | \Error | \Exception $e){
+            return response()->json([
+                    'error'=>true,
+                    'msg' =>"Network error",
+                    'errorMsg' =>$e->getMessage(),
+                    'data' => null
+            ], 201);
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
