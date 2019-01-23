@@ -24,7 +24,6 @@ class DatabaseSeeder extends Seeder
         $this->call(TopicsTableSeeder::class);
         $this->call(TagsTableSeeder::class);
         $this->call(ArticlesTableSeeder::class);
-        $this->call(ArticlesImagesTableSeeder::class);
 
         $this->command->info("Database seeded.");
 

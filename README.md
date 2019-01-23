@@ -29,6 +29,9 @@ php artisan migrate
 # Import fake data
 php artisan db:seed
 
+# Do you wish to refresh migration before seeding, it will clear all old data if exist? 
+Yes or No
+
 # If you get an error about an encryption key
 php artisan key:generate
 ```

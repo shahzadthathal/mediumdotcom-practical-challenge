@@ -11,7 +11,7 @@ class TopicsTableSeeder extends Seeder
      */
     public function run()
     {
-        $count = 15;
+        $count = 11;
         // Create the topics
         $tags = factory(App\Models\Topics::class, $count)->create();
         $this->command->info("Topics created.");

@@ -11,7 +11,7 @@ class ArticlesTableSeeder extends Seeder
      */
     public function run()
     {
-        $count = 25;
+        $count = 150;
         // Create articles
         $tags = factory(App\Models\Articles::class, $count)->create();
         $this->command->info("Articles created.");

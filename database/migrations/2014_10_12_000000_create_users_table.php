@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('email')->unique();
-            $table->char('role', 10)->default('admin')->comment('Column role will be used to determine admin or normal user account. customer, editor, admin');  
+            $table->char('role', 10)->default('user')->comment('Column role will be used to determine admin or normal user account. customer, editor, admin');  
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

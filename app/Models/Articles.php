@@ -12,12 +12,17 @@ class Articles extends Model
      * @var array
      */
     protected $fillable = [
-        'title','slug','topic_id', 'tags','image','description','status','is_popular','reading_time',
+        'title','slug','user_id','topic_id', 'tags','image','description','status','is_popular','reading_time',
     ];
 
-    public function topic()
+    public function user()
 	{
-		return $this->hasOne('App\Models\Topics', 'id', 'topic_id');
+		return $this->hasOne('App\Models\User', 'id', 'user_id');
 	}
+
+    public function topic()
+    {
+        return $this->hasOne('App\Models\Topics', 'id', 'topic_id');
+    }
 
 }
