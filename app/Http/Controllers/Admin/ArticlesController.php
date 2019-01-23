@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Articles;
 use App\Models\Topics;
 use App\Models\Tags;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -30,10 +31,12 @@ class ArticlesController extends Controller
     public function create()
     {  
         $topics = Topics::where('status',1)->get();
+        $users = User::all();
         $tags = Tags::where('status',1)->get();
         
         return view('admin.articles.create',[
             'topics'=>$topics,
+            'users'=>$users,
             'tags'=>$tags
         ]);
     }
@@ -90,6 +93,7 @@ class ArticlesController extends Controller
     public function edit($id)
     {
         $item = Articles::findOrFail($id);
+        $users = User::all();
         $savedTags = explode(',', $item->tags);
         $tags = Tags::where('status',1)->get();
         $topics = Topics::where('status',1)->get();
@@ -97,6 +101,7 @@ class ArticlesController extends Controller
             'tags'=>$tags,
             'savedTags'=>$savedTags,
             'topics'=>$topics,
+            'users'=>$users,
         ])->with('item', $item);
     }
 

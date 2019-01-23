@@ -114,7 +114,7 @@ class ArticleController extends Controller
                 $data[] = [
                         'name'=>$topic->name,
                         'slug'=>$topic->slug,
-                        'articles'=> $articles,
+                        'articles'=> ArticleResource::collection($articles),
                 ];
             }
 
