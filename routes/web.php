@@ -20,6 +20,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 
+Route::get('article/{topic?}/{slug?}', 'ArticleController@show');
 
 
 #Blog upload multiple images in description

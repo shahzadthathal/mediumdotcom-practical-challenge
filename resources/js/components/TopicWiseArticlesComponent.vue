@@ -5,10 +5,10 @@
             
             <div class="flex border-b mb-4 pb-4">
                     <div class="w-3/4 ">
-                        <a href="" class="no-underline text-black text-lg font-bold">{{topic.name}}</a>
+                        <a :href="'topic/'+topic.slug" class="no-underline text-black text-lg font-bold">{{topic.name}}</a>
                     </div>
                     <div class="w-1/4 text-right">
-                        <a href="" class="no-underline text-grey-dark text-sm">
+                        <a :href="'topic/'+topic.slug" class="no-underline text-grey-dark text-sm">
                             MORE 
                             <svg class="text-sm" width="19" height="19">
                                 <path d="M7.6 5.138L12.03 9.5 7.6 13.862l-.554-.554L10.854 9.5 7.046 5.692" fill-rule="evenodd"></path>
@@ -20,21 +20,21 @@
                 <article class="mb-12 flex" v-for="article in topic.articles">
                 <div class="w-3/4">
                     <h2 class="mb-4">
-                        <a href="#" class="text-black text-sm md:text-1xl no-underline hover:underline">
+                        <a :href="'article/'+article.topic_slug+'/'+article.slug"  class="text-black text-sm md:text-1xl no-underline hover:underline">
                         {{article.title.substr(0,80)}}
                         </a> 
                     </h2>
                     <p class="text-grey-darker leading-normal" v-html="article.description.substr(0,100)">
                     </p>
                     <div class="mb-4 mt-4 text-sm text-grey-darker">
-                        <a href="#" class="text-black no-underline">Niklas Göke</a>
+                        <a href="#" class="text-black no-underline">{{article.author}}</a>
                         <span class="mx-1"> in </span>
-                        <a href="#" class="text-black no-underline">Better Humans</a>
+                        <a href="#" class="text-black no-underline">{{article.topic_title}}</a>
                     </div>
                     <div class="mb-4 mt-4 text-sm text-grey-darker">
-                        <a href="#" class="text-grey-darker no-underline">19 Jan</a>
+                        <a href="#" class="text-grey-darker no-underline">{{article.created_at}}</a>
                         <span class="font-bold">.</span>
-                        <span class="mx-1 no-underline"> 6 min read </span>
+                        <span class="mx-1 no-underline"> {{article.reading_time}} read </span>
                     </div>
                 </div>
                 <div class="w-1/4">
@@ -60,9 +60,16 @@
                 },
         		article:{
         			title: '',
-        			slug: '',
-        			image: '',
-        			description: ''
+                    slug: '',
+                    image: '',
+                    description: '',
+                    clap: '',
+                    author: '',
+                    topic_title: '',
+                    topic_slug: '',
+                    clap: '',
+                    created_at: '',
+                    reading_time: ''
         		},
         	}
         },

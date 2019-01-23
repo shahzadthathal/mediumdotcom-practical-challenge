@@ -1,9 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="w-full px-6 py-12 bg-white">
-    
     <latest-articles-component></latest-articles-component>
-
     <div class="container max-w-2xl mx-auto text-right mt-3">
         <a href="#" class="inline-block no-underline text-green hover:text-green-dark text-sm py-2 px-3 ">See All Featured</a>
         <hr class="border-b">
@@ -27,14 +25,13 @@
         </div>
     </div>
     <div class="mx-auto md:flex items-start py-8 px-6">
-        <!-- articles -->
         <div class="w-full md:pr-12 mb-12">
             <div class="flex border-b mb-4 pb-4">
                 <div class="w-3/4 ">
-                    <a href="" class="no-underline text-black text-lg font-bold">Featured for members</a>
+                    <a href="topic/members" class="no-underline text-black text-lg font-bold">Featured for members</a>
                 </div>
                 <div class="w-1/4 text-right">
-                    <a href="" class="no-underline text-grey-dark text-sm">
+                    <a href="topic/members" class="no-underline text-grey-dark text-sm">
                         MORE 
                         <svg class="text-sm" width="19" height="19">
                             <path d="M7.6 5.138L12.03 9.5 7.6 13.862l-.554-.554L10.854 9.5 7.046 5.692" fill-rule="evenodd"></path>
@@ -42,31 +39,21 @@
                     </a>
                 </div>
             </div>
-            
             <featured-articles-component></featured-articles-component>
-
             <topic-wise-articles-component></topic-wise-articles-component>
-            
             <div class="flex text-xs">
                 <span class="text-grey no-underline py-2">FEATURED COLLECTIONS</span>
             </div>
-
             <featured-collections-component></featured-collections-component>
-
         </div>
-        <!--/ articles -->
-        <!-- sidebar -->
         <div class="w-full md:w-64">
-            
             <div class="border-b mb-4 pb-2 pt-5">
-                     <h3 class="text-sm text-black py-3">Popular on Medium</h3>
+                <h3 class="py-3">
+                    <a href="topic/members" class="no-underline text-sm text-black">Popular on Medium
+                </h3>
             </div>
-
             <popular-articles-component></popular-articles-component>
-
         </div>
-        <!-- /sidebar -->
     </div>
 </div>
-<!-- /blog -->
 @endsection

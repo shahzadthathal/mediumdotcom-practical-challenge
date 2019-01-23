@@ -169,24 +169,18 @@ class ArticleController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  string  $topic, string slug
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($topic, $slug)
     {
-        try{
+    
+        $article = Articles::where('slug',$slug)->first();
+        if($article===null)
+            return redirect('/');
 
-            $article = Articles::findOrFail($id);
-            return new ArticleResource($article);
+         return view('articles.show')->with('item', $article);
 
-        }catch(\Throwable | \Error | \Exception $e){
-            return response()->json([
-                    'error'=>true,
-                    'msg' =>"Network error",
-                    'errorMsg' =>$e->getMessage(),
-                    'data' => null
-            ], 201);
-        }
     }
 
 }

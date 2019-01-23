@@ -4,21 +4,21 @@
         <article class="mb-12 flex" v-for="article in featuredArticles">
             <div class="w-3/4">
                 <h2 class="mb-4">
-                    <a href="#" class="text-black text-sm md:text-1xl no-underline hover:underline">
+                    <a :href="'article/'+article.topic_slug+'/'+article.slug" class="text-black text-sm md:text-1xl no-underline hover:underline">
                     {{article.title.substring(0,80)}}
                     </a> 
                 </h2>
                 <p class="text-grey-darker leading-normal" v-html="article.description.substring(0,50)">
                 </p>
                 <div class="mb-4 mt-4 text-sm text-grey-darker">
-                    <a href="#" class="text-black no-underline">Niklas Göke</a>
+                    <a href="#" class="text-black no-underline">{{article.author}}</a>
                     <span class="mx-1"> in </span>
-                    <a href="#" class="text-black no-underline">Better Humans</a>
+                    <a href="#" class="text-black no-underline">{{article.topic_title}}</a>
                 </div>
                 <div class="mb-4 mt-4 text-sm text-grey-darker">
-                    <a href="#" class="text-grey-darker no-underline">19 Jan</a>
+                    <a href="#" class="text-grey-darker no-underline">{{article.created_at}}</a>
                     <span class="font-bold">.</span>
-                    <span class="mx-1 no-underline"> 6 min read </span>
+                    <span class="mx-1 no-underline"> {{article.reading_time}} read </span>
                 </div>
             </div>
             <div class="w-1/4">
@@ -37,9 +37,16 @@
                 featuredArticles:[],
         		article:{
         			title: '',
-        			slug: '',
-        			image: '',
-        			description: ''
+                    slug: '',
+                    image: '',
+                    description: '',
+                    clap: '',
+                    author: '',
+                    topic_title: '',
+                    topic_slug: '',
+                    clap: '',
+                    created_at: '',
+                    reading_time: ''
         		},
         	}
         },

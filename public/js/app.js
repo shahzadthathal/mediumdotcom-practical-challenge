@@ -1829,6 +1829,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -1863,14 +1865,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
+    var _article;
+
     return {
       featuredArticles: [],
-      article: {
+      article: (_article = {
         title: '',
         slug: '',
         image: '',
-        description: ''
-      }
+        description: '',
+        clap: '',
+        author: '',
+        topic_title: '',
+        topic_slug: ''
+      }, _defineProperty(_article, "clap", ''), _defineProperty(_article, "created_at", ''), _defineProperty(_article, "reading_time", ''), _article)
     };
   },
   created: function created() {
@@ -1942,6 +1950,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -2012,32 +2022,50 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
+    var _article, _leftArticle, _centerArticle, _rightArticle;
+
     return {
-      article: {
+      article: (_article = {
         title: '',
         slug: '',
         image: '',
-        description: ''
-      },
-      leftArticle: {
+        description: '',
+        clap: '',
+        author: '',
+        topic_title: '',
+        topic_slug: ''
+      }, _defineProperty(_article, "clap", ''), _defineProperty(_article, "created_at", ''), _defineProperty(_article, "reading_time", ''), _article),
+      leftArticle: (_leftArticle = {
         title: '',
         slug: '',
         image: '',
-        description: ''
-      },
+        description: '',
+        clap: '',
+        author: '',
+        topic_title: '',
+        topic_slug: ''
+      }, _defineProperty(_leftArticle, "clap", ''), _defineProperty(_leftArticle, "created_at", ''), _defineProperty(_leftArticle, "reading_time", ''), _leftArticle),
       centerArticles: [],
-      centerArticle: {
+      centerArticle: (_centerArticle = {
         title: '',
         slug: '',
         image: '',
-        description: ''
-      },
-      rightArticle: {
+        description: '',
+        clap: '',
+        author: '',
+        topic_title: '',
+        topic_slug: ''
+      }, _defineProperty(_centerArticle, "clap", ''), _defineProperty(_centerArticle, "created_at", ''), _defineProperty(_centerArticle, "reading_time", ''), _centerArticle),
+      rightArticle: (_rightArticle = {
         title: '',
         slug: '',
         image: '',
-        description: ''
-      },
+        description: '',
+        clap: '',
+        author: '',
+        topic_title: '',
+        topic_slug: ''
+      }, _defineProperty(_rightArticle, "clap", ''), _defineProperty(_rightArticle, "created_at", ''), _defineProperty(_rightArticle, "reading_time", ''), _rightArticle),
       popularArticles: []
     };
   },
@@ -2071,6 +2099,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -2104,14 +2134,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
+    var _article;
+
     return {
       popularArticles: [],
-      article: {
+      article: (_article = {
         title: '',
         slug: '',
         image: '',
-        description: ''
-      }
+        description: '',
+        clap: '',
+        author: '',
+        topic_title: '',
+        topic_slug: ''
+      }, _defineProperty(_article, "clap", ''), _defineProperty(_article, "created_at", ''), _defineProperty(_article, "reading_time", ''), _article)
     };
   },
   created: function created() {
@@ -2142,6 +2178,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -2194,6 +2232,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
+    var _article;
+
     return {
       topicWiseArticles: [],
       topic: {
@@ -2201,12 +2241,16 @@ __webpack_require__.r(__webpack_exports__);
         slug: '',
         articles: {}
       },
-      article: {
+      article: (_article = {
         title: '',
         slug: '',
         image: '',
-        description: ''
-      }
+        description: '',
+        clap: '',
+        author: '',
+        topic_title: '',
+        topic_slug: ''
+      }, _defineProperty(_article, "clap", ''), _defineProperty(_article, "created_at", ''), _defineProperty(_article, "reading_time", ''), _article)
     };
   },
   created: function created() {
@@ -37180,7 +37224,9 @@ var render = function() {
               {
                 staticClass:
                   "text-black text-sm md:text-1xl no-underline hover:underline",
-                attrs: { href: "#" }
+                attrs: {
+                  href: "article/" + article.topic_slug + "/" + article.slug
+                }
               },
               [
                 _vm._v(
@@ -37199,9 +37245,38 @@ var render = function() {
             }
           }),
           _vm._v(" "),
-          _vm._m(0, true),
+          _c("div", { staticClass: "mb-4 mt-4 text-sm text-grey-darker" }, [
+            _c(
+              "a",
+              { staticClass: "text-black no-underline", attrs: { href: "#" } },
+              [_vm._v(_vm._s(article.author))]
+            ),
+            _vm._v(" "),
+            _c("span", { staticClass: "mx-1" }, [_vm._v(" in ")]),
+            _vm._v(" "),
+            _c(
+              "a",
+              { staticClass: "text-black no-underline", attrs: { href: "#" } },
+              [_vm._v(_vm._s(article.topic_title))]
+            )
+          ]),
           _vm._v(" "),
-          _vm._m(1, true)
+          _c("div", { staticClass: "mb-4 mt-4 text-sm text-grey-darker" }, [
+            _c(
+              "a",
+              {
+                staticClass: "text-grey-darker no-underline",
+                attrs: { href: "#" }
+              },
+              [_vm._v(_vm._s(article.created_at))]
+            ),
+            _vm._v(" "),
+            _c("span", { staticClass: "font-bold" }, [_vm._v(".")]),
+            _vm._v(" "),
+            _c("span", { staticClass: "mx-1 no-underline" }, [
+              _vm._v(" " + _vm._s(article.reading_time) + " read ")
+            ])
+          ])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "w-1/4" }, [
@@ -37212,44 +37287,7 @@ var render = function() {
     0
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mb-4 mt-4 text-sm text-grey-darker" }, [
-      _c(
-        "a",
-        { staticClass: "text-black no-underline", attrs: { href: "#" } },
-        [_vm._v("Niklas Göke")]
-      ),
-      _vm._v(" "),
-      _c("span", { staticClass: "mx-1" }, [_vm._v(" in ")]),
-      _vm._v(" "),
-      _c(
-        "a",
-        { staticClass: "text-black no-underline", attrs: { href: "#" } },
-        [_vm._v("Better Humans")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mb-4 mt-4 text-sm text-grey-darker" }, [
-      _c(
-        "a",
-        { staticClass: "text-grey-darker no-underline", attrs: { href: "#" } },
-        [_vm._v("19 Jan")]
-      ),
-      _vm._v(" "),
-      _c("span", { staticClass: "font-bold" }, [_vm._v(".")]),
-      _vm._v(" "),
-      _c("span", { staticClass: "mx-1 no-underline" }, [_vm._v(" 6 min read ")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -37435,7 +37473,16 @@ var render = function() {
         _vm._v(" "),
         _c(
           "a",
-          { staticClass: "no-underline text-black", attrs: { href: "" } },
+          {
+            staticClass: "no-underline text-black",
+            attrs: {
+              href:
+                "article/" +
+                _vm.leftArticle.topic_slug +
+                "/" +
+                _vm.leftArticle.slug
+            }
+          },
           [
             _c("h3", { staticClass: "text-2xl mb-2" }, [
               _vm._v(_vm._s(_vm.leftArticle.title.substring(0, 65)))
@@ -37454,7 +37501,45 @@ var render = function() {
           [_vm._v("...")]
         ),
         _vm._v(" "),
-        _vm._m(0)
+        _c("div", { staticClass: "text-sm mt-2" }, [
+          _c("p", { staticClass: "text-black leading-none" }, [
+            _c(
+              "a",
+              {
+                staticClass: "text-black no-underline  hover:text-grey-darkest",
+                attrs: { href: "#" }
+              },
+              [_vm._v(_vm._s(_vm.leftArticle.author))]
+            ),
+            _vm._v("\n                    in "),
+            _c(
+              "a",
+              {
+                staticClass: "text-black no-underline  hover:text-grey-darkest",
+                attrs: { href: "" }
+              },
+              [
+                _vm._v(
+                  " " +
+                    _vm._s(_vm.leftArticle.topic_title) +
+                    "\n                    "
+                )
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "text-grey-dark mt-1" }, [
+            _c("span", { attrs: { title: _vm.leftArticle.created_at } }, [
+              _vm._v(" " + _vm._s(_vm.leftArticle.created_at) + " ")
+            ]),
+            _vm._v(" . "),
+            _c(
+              "span",
+              { attrs: { title: _vm.leftArticle.reading_time + " read" } },
+              [_vm._v(_vm._s(_vm.leftArticle.reading_time) + " read")]
+            )
+          ])
+        ])
       ]),
       _vm._v(" "),
       _c(
@@ -37471,7 +37556,16 @@ var render = function() {
             _c("div", { staticClass: "w-full pl-1" }, [
               _c(
                 "a",
-                { staticClass: "no-underline text-black", attrs: { href: "" } },
+                {
+                  staticClass: "no-underline text-black",
+                  attrs: {
+                    href:
+                      "article/" +
+                      centerArticle.topic_slug +
+                      "/" +
+                      centerArticle.slug
+                  }
+                },
                 [
                   _c("h3", { staticClass: "text-sm mb-2" }, [
                     _vm._v(_vm._s(centerArticle.title.substring(0, 65)))
@@ -37486,7 +37580,46 @@ var render = function() {
                 }
               }),
               _vm._v(" "),
-              _vm._m(1, true)
+              _c("div", { staticClass: "text-sm mt-2" }, [
+                _c("p", { staticClass: "text-black leading-none" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass:
+                        "text-black no-underline  hover:text-grey-darkest",
+                      attrs: { href: "#" }
+                    },
+                    [_vm._v(_vm._s(centerArticle.author))]
+                  ),
+                  _vm._v("\n                            in "),
+                  _c(
+                    "a",
+                    {
+                      staticClass:
+                        "text-black no-underline  hover:text-grey-darkest",
+                      attrs: { href: "#" }
+                    },
+                    [
+                      _vm._v(
+                        _vm._s(centerArticle.topic_title) +
+                          "\n                            "
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "text-grey-dark mt-1 mb-1" }, [
+                  _c("span", { attrs: { title: centerArticle.created_at } }, [
+                    _vm._v(" " + _vm._s(centerArticle.created_at))
+                  ]),
+                  _vm._v(" . "),
+                  _c(
+                    "span",
+                    { attrs: { title: centerArticle.reading_time + "  read" } },
+                    [_vm._v(_vm._s(centerArticle.reading_time) + " read")]
+                  )
+                ])
+              ])
             ])
           ])
         }),
@@ -37501,7 +37634,16 @@ var render = function() {
         _vm._v(" "),
         _c(
           "a",
-          { staticClass: "no-underline text-black", attrs: { href: "" } },
+          {
+            staticClass: "no-underline text-black",
+            attrs: {
+              href:
+                "article/" +
+                _vm.rightArticle.topic_slug +
+                "/" +
+                _vm.rightArticle.slug
+            }
+          },
           [
             _c("h3", { staticClass: "text-2xl mb-2" }, [
               _vm._v(_vm._s(_vm.rightArticle.title.substring(0, 65)))
@@ -37520,109 +37662,49 @@ var render = function() {
           [_vm._v("...")]
         ),
         _vm._v(" "),
-        _vm._m(2)
+        _c("div", { staticClass: "text-sm mt-2" }, [
+          _c("p", { staticClass: "text-black leading-none" }, [
+            _c(
+              "a",
+              {
+                staticClass: "text-black no-underline  hover:text-grey-darkest",
+                attrs: { href: "#" }
+              },
+              [_vm._v(_vm._s(_vm.rightArticle.author))]
+            ),
+            _vm._v("\n                    in "),
+            _c(
+              "a",
+              {
+                staticClass: "text-black no-underline  hover:text-grey-darkest",
+                attrs: { href: "#" }
+              },
+              [
+                _vm._v(
+                  _vm._s(_vm.rightArticle.topic_title) +
+                    "\n                    "
+                )
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "text-grey-dark mt-1" }, [
+            _c("span", { attrs: { title: _vm.rightArticle.created_at } }, [
+              _vm._v(" " + _vm._s(_vm.rightArticle.created_at))
+            ]),
+            _vm._v(" . "),
+            _c(
+              "span",
+              { attrs: { title: _vm.rightArticle.reading_time + " read" } },
+              [_vm._v(_vm._s(_vm.rightArticle.reading_time) + " read")]
+            )
+          ])
+        ])
       ])
     ]
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "text-sm mt-2" }, [
-      _c("p", { staticClass: "text-black leading-none" }, [
-        _c(
-          "a",
-          {
-            staticClass: "text-black no-underline  hover:text-grey-darkest",
-            attrs: { href: "#" }
-          },
-          [_vm._v("Jonathan Reinink")]
-        ),
-        _vm._v("\n                    in "),
-        _c(
-          "a",
-          {
-            staticClass: "text-black no-underline  hover:text-grey-darkest",
-            attrs: { href: "#" }
-          },
-          [_vm._v("Science\n                    ")]
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "text-grey-dark mt-1" }, [
-        _c("span", { attrs: { title: "Aug 18" } }, [_vm._v(" Aug 18")]),
-        _vm._v(" . "),
-        _c("span", { attrs: { title: "6 min read" } }, [_vm._v("6 min read")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "text-sm mt-2" }, [
-      _c("p", { staticClass: "text-black leading-none" }, [
-        _c(
-          "a",
-          {
-            staticClass: "text-black no-underline  hover:text-grey-darkest",
-            attrs: { href: "#" }
-          },
-          [_vm._v("Jonathan Reinink")]
-        ),
-        _vm._v("\n                            in "),
-        _c(
-          "a",
-          {
-            staticClass: "text-black no-underline  hover:text-grey-darkest",
-            attrs: { href: "#" }
-          },
-          [_vm._v("Science\n                            ")]
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "text-grey-dark mt-1 mb-1" }, [
-        _c("span", { attrs: { title: "Aug 18" } }, [_vm._v(" Aug 18")]),
-        _vm._v(" . "),
-        _c("span", { attrs: { title: "6 min read" } }, [_vm._v("6 min read")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "text-sm mt-2" }, [
-      _c("p", { staticClass: "text-black leading-none" }, [
-        _c(
-          "a",
-          {
-            staticClass: "text-black no-underline  hover:text-grey-darkest",
-            attrs: { href: "#" }
-          },
-          [_vm._v("Jonathan Reinink")]
-        ),
-        _vm._v("\n                    in "),
-        _c(
-          "a",
-          {
-            staticClass: "text-black no-underline  hover:text-grey-darkest",
-            attrs: { href: "#" }
-          },
-          [_vm._v("Science\n                    ")]
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "text-grey-dark mt-1" }, [
-        _c("span", { attrs: { title: "Aug 18" } }, [_vm._v(" Aug 18")]),
-        _vm._v(" . "),
-        _c("span", { attrs: { title: "6 min read" } }, [_vm._v("6 min read")])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -37658,7 +37740,12 @@ var render = function() {
           _c("div", { staticClass: "w-3/4" }, [
             _c(
               "a",
-              { staticClass: "no-underline text-black", attrs: { href: "" } },
+              {
+                staticClass: "no-underline text-black",
+                attrs: {
+                  href: "article/" + article.topic_slug + "/" + article.slug
+                }
+              },
               [
                 _c("h3", { staticClass: "text-sm mb-2" }, [
                   _vm._v(_vm._s(article.title.substr(0, 80)))
@@ -37666,7 +37753,46 @@ var render = function() {
               ]
             ),
             _vm._v(" "),
-            _vm._m(1, true)
+            _c("div", { staticClass: "text-sm mt-2" }, [
+              _c("p", { staticClass: "text-black leading-none" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass:
+                      "text-black no-underline  hover:text-grey-darkest",
+                    attrs: { href: "#" }
+                  },
+                  [_vm._v(_vm._s(article.author))]
+                ),
+                _vm._v("\n                                in "),
+                _c(
+                  "a",
+                  {
+                    staticClass:
+                      "text-black no-underline  hover:text-grey-darkest",
+                    attrs: { href: "#" }
+                  },
+                  [
+                    _vm._v(
+                      _vm._s(article.topic_title) +
+                        "\n                                "
+                    )
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "text-grey-dark mt-1 mb-1" }, [
+                _c("span", { attrs: { title: article.created_at } }, [
+                  _vm._v(" " + _vm._s(article.created_at) + " ")
+                ]),
+                _vm._v(" . "),
+                _c(
+                  "span",
+                  { attrs: { title: article.reading_time + " read" } },
+                  [_vm._v(_vm._s(article.reading_time) + " read")]
+                )
+              ])
+            ])
           ])
         ])
       }),
@@ -37681,38 +37807,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "w-1/4" }, [
       _c("span", { staticClass: "text-2xl text-grey" }, [_vm._v(" 01 ")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "text-sm mt-2" }, [
-      _c("p", { staticClass: "text-black leading-none" }, [
-        _c(
-          "a",
-          {
-            staticClass: "text-black no-underline  hover:text-grey-darkest",
-            attrs: { href: "#" }
-          },
-          [_vm._v("Jonathan Reinink")]
-        ),
-        _vm._v("\n                                in "),
-        _c(
-          "a",
-          {
-            staticClass: "text-black no-underline  hover:text-grey-darkest",
-            attrs: { href: "#" }
-          },
-          [_vm._v("Science\n                                ")]
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "text-grey-dark mt-1 mb-1" }, [
-        _c("span", { attrs: { title: "Aug 18" } }, [_vm._v(" Aug 18")]),
-        _vm._v(" . "),
-        _c("span", { attrs: { title: "6 min read" } }, [_vm._v("6 min read")])
-      ])
     ])
   }
 ]
@@ -37749,7 +37843,7 @@ var render = function() {
                 "a",
                 {
                   staticClass: "no-underline text-black text-lg font-bold",
-                  attrs: { href: "" }
+                  attrs: { href: "topic/" + topic.slug }
                 },
                 [_vm._v(_vm._s(topic.name))]
               )
@@ -37760,7 +37854,7 @@ var render = function() {
                 "a",
                 {
                   staticClass: "no-underline text-grey-dark text-sm",
-                  attrs: { href: "" }
+                  attrs: { href: "topic/" + topic.slug }
                 },
                 [
                   _vm._v(
@@ -37796,7 +37890,10 @@ var render = function() {
                     {
                       staticClass:
                         "text-black text-sm md:text-1xl no-underline hover:underline",
-                      attrs: { href: "#" }
+                      attrs: {
+                        href:
+                          "article/" + article.topic_slug + "/" + article.slug
+                      }
                     },
                     [
                       _vm._v(
@@ -37815,9 +37912,52 @@ var render = function() {
                   }
                 }),
                 _vm._v(" "),
-                _vm._m(0, true),
+                _c(
+                  "div",
+                  { staticClass: "mb-4 mt-4 text-sm text-grey-darker" },
+                  [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "text-black no-underline",
+                        attrs: { href: "#" }
+                      },
+                      [_vm._v(_vm._s(article.author))]
+                    ),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "mx-1" }, [_vm._v(" in ")]),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "text-black no-underline",
+                        attrs: { href: "#" }
+                      },
+                      [_vm._v(_vm._s(article.topic_title))]
+                    )
+                  ]
+                ),
                 _vm._v(" "),
-                _vm._m(1, true)
+                _c(
+                  "div",
+                  { staticClass: "mb-4 mt-4 text-sm text-grey-darker" },
+                  [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "text-grey-darker no-underline",
+                        attrs: { href: "#" }
+                      },
+                      [_vm._v(_vm._s(article.created_at))]
+                    ),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "font-bold" }, [_vm._v(".")]),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "mx-1 no-underline" }, [
+                      _vm._v(" " + _vm._s(article.reading_time) + " read ")
+                    ])
+                  ]
+                )
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "w-1/4" }, [
@@ -37832,44 +37972,7 @@ var render = function() {
     0
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mb-4 mt-4 text-sm text-grey-darker" }, [
-      _c(
-        "a",
-        { staticClass: "text-black no-underline", attrs: { href: "#" } },
-        [_vm._v("Niklas Göke")]
-      ),
-      _vm._v(" "),
-      _c("span", { staticClass: "mx-1" }, [_vm._v(" in ")]),
-      _vm._v(" "),
-      _c(
-        "a",
-        { staticClass: "text-black no-underline", attrs: { href: "#" } },
-        [_vm._v("Better Humans")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mb-4 mt-4 text-sm text-grey-darker" }, [
-      _c(
-        "a",
-        { staticClass: "text-grey-darker no-underline", attrs: { href: "#" } },
-        [_vm._v("19 Jan")]
-      ),
-      _vm._v(" "),
-      _c("span", { staticClass: "font-bold" }, [_vm._v(".")]),
-      _vm._v(" "),
-      _c("span", { staticClass: "mx-1 no-underline" }, [_vm._v(" 6 min read ")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
